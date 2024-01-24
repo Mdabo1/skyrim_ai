@@ -1,0 +1,13 @@
+train: D:\skyrim_ai\Skyrim AI.v4i.yolov8_one_class_2x\train
+val: D:\skyrim_ai\Skyrim AI.v4i.yolov8_one_class_2x\valid
+test: D:\skyrim_ai\Skyrim AI.v4i.yolov8_one_class_2x\test
+
+nc: 1
+names: ["Human-like"]
+
+roboflow:
+  workspace: skyrim-ai
+  project: skyrim-ai
+  version: 4
+  license: MIT
+  url: https://universe.roboflow.com/skyrim-ai/skyrim-ai/dataset/4
