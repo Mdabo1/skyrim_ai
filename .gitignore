@@ -6,7 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Custom staff
 dataset/
+training_data.npy
 
 # Distribution / packaging
 .Python
