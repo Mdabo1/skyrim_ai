@@ -19,7 +19,7 @@
 from win32api import GetKeyState
 import win32api
 import time
-
+import pydirectinput
 
 special_keys = [0x01, 0x02, 0x10, 0x20, 0x12]
 
@@ -42,3 +42,9 @@ def key_check():
                 keys.append(chr(i))
     time.sleep(0.01)
     return keys
+
+
+def mouse_check():
+    x, y = pydirectinput.position()
+    position = [x,y]
+    return position

@@ -4,7 +4,9 @@ from windowcapture import WindowCapture
 import math
 from ultralytics import YOLO
 from getkeys import key_check
+from getkeys import mouse_check
 import os
+import time
 
 # Load Yolo
 model = YOLO("best.pt")
@@ -17,8 +19,8 @@ colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 
 def keys_to_output(keys):
-    #         W A S D shift alt space
-    output = [0, 0, 0, 0, 0, 0, 0]
+    #         W A S D shift alt space leftclick rightclick
+    output = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     if "W" in keys:
         output[0] = 1
     elif "A" in keys:
@@ -33,6 +35,10 @@ def keys_to_output(keys):
         output[5] = 1
     elif "space" in keys:
         output[6] = 1
+    elif "leftClick" in keys:
+        output[7] = 1
+    elif "rightClick" in keys:
+        output[8] = 1
     return output
 
 
@@ -46,10 +52,12 @@ else:
     training_data = []
 
 while True:
+    start_time = time.time()
+
     screen = wincap.get_screenshot()
-    img = cv2.resize(screen, (800, 600), fx=0.4, fy=0.3)
+    img = cv2.resize(screen, (320, 240), fx=0.4, fy=0.3, interpolation=cv2.INTER_AREA)
     keys = key_check()
-    output = keys_to_output(keys)
+    output = keys_to_output(keys) + mouse_check()
     training_data.append([img, output])
     # success, img = wincap.read()
     results = model(img, stream=True)
@@ -80,6 +88,7 @@ while True:
             fontScale = 1
             color = (255, 0, 0)
             thickness = 2
+            print("FPS -----> {}".format(1 / (time.time() - start_time)))
 
     cv2.imshow("Window", img)
 

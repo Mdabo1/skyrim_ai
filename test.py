@@ -1,5 +1,4 @@
 import pydirectinput
-import time
 
 # pydirectinput.moveTo(100, 150) # Move the mouse to the x, y coordinates 100, 150.
 # pydirectinput.click() # Click the mouse at its current location.
@@ -26,11 +25,10 @@ import time
 # [0,0,0,0,0, 0, 0] <- keyboard oh
 # [x,y]          <- mouse position
 
-training_data = []
-
 try:
     while True:
-        if pydirectinput.press('f'):
-            print('left mouse button')
+        x, y = pydirectinput.position()
+        positionStr = [x, y]
+        print(positionStr)
 except KeyboardInterrupt:
     print("\n")
