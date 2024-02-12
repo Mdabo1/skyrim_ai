@@ -21,8 +21,8 @@ colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 
 def keys_to_output(keys):
-    #         W A S D shift alt space leftclick rightclick
-    output = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    #         W A S D space leftclick rightclick
+    output = [0, 0, 0, 0, 0, 0, 0]
     if "W" in keys:
         output[0] = 1
     elif "A" in keys:
@@ -31,16 +31,12 @@ def keys_to_output(keys):
         output[2] = 1
     elif "D" in keys:
         output[3] = 1
-    elif "alt" in keys:
-        output[4] = 1
-    elif "shift" in keys:
-        output[5] = 1
     elif "space" in keys:
-        output[6] = 1
+        output[4] = 1
     elif "leftClick" in keys:
-        output[7] = 1
+        output[5] = 1
     elif "rightClick" in keys:
-        output[8] = 1
+        output[6] = 1
     return output
 
 
@@ -48,7 +44,7 @@ file_name = "training_data.npy"
 
 if os.path.isfile(file_name):
     print("File exists, loading previous data!")
-    training_data = list(np.load(file_name))
+    training_data = list(np.load(file_name, allow_pickle=True))
 else:
     print("File does not exist")
     training_data = []
