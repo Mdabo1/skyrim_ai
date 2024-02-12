@@ -24,11 +24,3 @@ import pydirectinput
 #  w a s d lc pc alt
 # [0,0,0,0,0, 0, 0] <- keyboard oh
 # [x,y]          <- mouse position
-
-try:
-    while True:
-        x, y = pydirectinput.position()
-        positionStr = [x, y]
-        print(positionStr)
-except KeyboardInterrupt:
-    print("\n")

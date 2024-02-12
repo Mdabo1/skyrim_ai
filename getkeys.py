@@ -46,5 +46,8 @@ def key_check():
 
 def mouse_check():
     x, y = pydirectinput.position()
-    position = [x,y]
-    return position
+    position1 = [x, y]
+    time.sleep(0.001)
+    x, y = pydirectinput.position()
+    position2 = [x, y]
+    return([position2[0] - position1[0],position2[1] - position1[1]])

@@ -1,12 +1,14 @@
 import numpy as np
 import cv2
 from windowcapture import WindowCapture
-import math
+
+# import math
 from ultralytics import YOLO
 from getkeys import key_check
 from getkeys import mouse_check
 import os
-import time
+
+# import time
 
 # Load Yolo
 model = YOLO("best.pt")
@@ -52,14 +54,12 @@ else:
     training_data = []
 
 while True:
-    start_time = time.time()
+    # start_time = time.time()
 
     screen = wincap.get_screenshot()
     img = cv2.resize(screen, (320, 240), fx=0.4, fy=0.3, interpolation=cv2.INTER_AREA)
     keys = key_check()
     output = keys_to_output(keys) + mouse_check()
-    training_data.append([img, output])
-    # success, img = wincap.read()
     results = model(img, stream=True)
 
     # coordinates
@@ -75,21 +75,22 @@ while True:
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 200, 0), 3)
 
             # confidence
-            confidence = math.ceil((box.conf[0] * 100)) / 100
-            print("Confidence --->", confidence)
+            # confidence = math.ceil((box.conf[0] * 100)) / 100
+            # print("Confidence --->", confidence)
 
             # class name
-            cls = int(box.cls[0])
-            print("Class name -->", classes[cls])
+            # cls = int(box.cls[0])
+            # print("Class name -->", classes[cls])
 
             # object details
-            org = [x1, y1]
-            font = cv2.FONT_HERSHEY_SIMPLEX
-            fontScale = 1
-            color = (255, 0, 0)
-            thickness = 2
-            print("FPS -----> {}".format(1 / (time.time() - start_time)))
-
+            # org = [x1, y1]
+            # font = cv2.FONT_HERSHEY_SIMPLEX
+            # fontScale = 1
+            # color = (255, 0, 0)
+            # thickness = 2
+            # print("FPS -----> {}".format(1 / (time.time() - start_time)))
+    print(output)
+    training_data.append([img, output])
     cv2.imshow("Window", img)
 
     if len(training_data) % 100 == 0:
