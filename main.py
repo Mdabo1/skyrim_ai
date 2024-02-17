@@ -89,9 +89,9 @@ while True:
     training_data.append([img, output])
     cv2.imshow("Window", img)
 
-    if len(training_data) % 100 == 0:
+    if len(training_data) % 10000 == 0:
         print(len(training_data))
         np.save(file_name, training_data)
-
+        break
     if cv2.waitKey(1) == ord("q"):
         break

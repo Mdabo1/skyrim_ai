@@ -9,6 +9,7 @@ __pycache__/
 # Custom staff
 dataset/
 training_data.npy
+training_data_v2.npy
 
 # Distribution / packaging
 .Python
