@@ -54,6 +54,7 @@ while True:
 
     screen = wincap.get_screenshot()
     img = cv2.resize(screen, (320, 240), fx=0.4, fy=0.3, interpolation=cv2.INTER_AREA)
+    # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     keys = key_check()
     output = keys_to_output(keys) + mouse_check()
     results = model(img, stream=True)

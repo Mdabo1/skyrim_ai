@@ -10,6 +10,10 @@ __pycache__/
 dataset/
 training_data.npy
 training_data_v2.npy
+training_data_v3.npy
+tensorboard_check/
+resnet-500e-64b-0354470.pt
+log/
 
 # Distribution / packaging
 .Python

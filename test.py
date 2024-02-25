@@ -9,17 +9,16 @@ import pydirectinput
 # pydirectinput.keyDown('shift')
 # pydirectinput.keyUp('shift')
 
-# print("Press Ctrl-C to quit.")
-# try:
-#     while True:
-#         time.sleep(3)
-#         pydirectinput.click()
-#         x, y = pydirectinput.position()
-#         positionStr = "X: " + str(x).rjust(4) + " Y: " + str(y).rjust(4)
-#         print(positionStr, end="")
-#         print("\b" * len(positionStr), end="", flush=True)
-# except KeyboardInterrupt:
-#     print("\n")
+print("Press Ctrl-C to quit.")
+try:
+    while True:
+        
+        x, y = pydirectinput.position()
+        positionStr = "X: " + str(x).rjust(4) + " Y: " + str(y).rjust(4)
+        print(positionStr, end="")
+        print("\b" * len(positionStr), end="", flush=True)
+except KeyboardInterrupt:
+    print("\n")
 
 #  w a s d lc pc alt
 # [0,0,0,0,0, 0, 0] <- keyboard oh
