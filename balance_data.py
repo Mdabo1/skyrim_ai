@@ -45,7 +45,7 @@ for data in train_data:
     else:
         print("no matches")
 
-
+# concatenate key inputs to the size of the lowest one (backs)
 forwards = forwards[: len(backs)]
 lefts = lefts[: len(backs)]
 rights = rights[: len(backs)]
@@ -80,4 +80,6 @@ print(
     len(cursor_up),
     len(cursor_down),
 )
-# np.save("training_data_v3.npy", final_data)
+
+
+np.save("training_data_v3.npy", final_data)

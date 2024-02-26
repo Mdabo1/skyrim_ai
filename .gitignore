@@ -14,6 +14,7 @@ training_data_v3.npy
 tensorboard_check/
 resnet-500e-64b-0354470.pt
 log/
+data.yaml
 
 # Distribution / packaging
 .Python
