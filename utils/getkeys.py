@@ -8,14 +8,6 @@
 #     keyList.append(char)
 
 
-# def key_check():
-#     keys = []
-#     for key in keyList:
-#         if wapi.GetAsyncKeyState(ord(key)):
-#             keys.append(key)
-#     return keys
-
-
 from win32api import GetKeyState
 import win32api
 import time

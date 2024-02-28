@@ -1,8 +1,6 @@
 # balance_data.py
 
 import numpy as np
-import pandas as pd
-from collections import Counter
 from random import shuffle
 
 train_data = np.load("training_data_v2.npy", allow_pickle=True)

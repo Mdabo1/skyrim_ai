@@ -1,12 +1,12 @@
 import torch
-from windowcapture import WindowCapture
 import cv2
 import numpy as np
 from ultralytics import YOLO
 from resnet18_torchvision import build_model
 import time
 import pydirectinput
-from direct_keys import press_key, release_key, move_mouse, W, A, S, D, X
+from utils.windowcapture import WindowCapture
+from utils.direct_keys import press_key, release_key, move_mouse, W, A, S, D, X
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 wincap = WindowCapture("Skyrim")
@@ -38,8 +38,7 @@ while True:
     img = cv2.resize(
         screen, (WIDTH, HEIGHT), fx=0.4, fy=0.3, interpolation=cv2.INTER_AREA
     )
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
     results = model_cv(img, stream=True)
 
     for r in results:
@@ -53,13 +52,18 @@ while True:
             # put box in cam
             cv2.rectangle(img, (x1, y1), (x2, y2), (0, 200, 0), 3)
 
+
     img = np.array(img).reshape(3, HEIGHT, WIDTH)
     img = torch.from_numpy(img).float()
     img = img.to(device)
 
     with torch.no_grad():
         preds = model_pt(img.unsqueeze(0))
+        probs = torch.nn.functional.softmax(preds, dim=1)
         _, pred = torch.max(preds, 1)
+        pred_prob = probs[0][pred].item()
+        print('Probability ', pred_prob*100, '%')
+
         if pred == 0:
             print("W")
             press_key(W)
@@ -98,11 +102,10 @@ while True:
         elif pred == 7:
             print("cursor up")
             x = 0
-            y = 10
+            y = 50
             move_mouse(x, y)
         elif pred == 8:
             print("cursor down")
             x = 0
-            y = -10
+            y = -50
             move_mouse(x, y)
-        # time.sleep(1)

@@ -1,9 +1,9 @@
 import numpy as np
 import cv2
-from windowcapture import WindowCapture
+from utils.windowcapture import WindowCapture
 from ultralytics import YOLO
-from getkeys import key_check
-from getkeys import mouse_check
+from utils.getkeys import key_check
+from utils.getkeys import mouse_check
 import os
 
 
@@ -19,8 +19,8 @@ colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 
 def keys_to_output(keys):
-    #         W A S D space leftclick rightclick
-    output = [0, 0, 0, 0, 0, 0, 0]
+    #         W A S D leftclick 
+    output = [0, 0, 0, 0, 0]
     if "W" in keys:
         output[0] = 1
     elif "A" in keys:
@@ -30,7 +30,7 @@ def keys_to_output(keys):
     elif "D" in keys:
         output[3] = 1
     elif "leftClick" in keys:
-        output[5] = 1
+        output[4] = 1
     return output
 
 
