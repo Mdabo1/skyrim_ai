@@ -54,8 +54,7 @@ def move_mouse(x, y):
     ii_.mi = MouseInput(x, y, 0, (0x0001 | 0x8000), 0, ctypes.pointer(extra))
     x = Input(ctypes.c_ulong(0), ii_)
     ctypes.windll.user32.SendInput(1, ctypes.pointer(x), ctypes.sizeof(x))
-
-    time.sleep(0.01)
+    time.sleep(0.3)
 
 
 def press_key(hexKeyCode):

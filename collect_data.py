@@ -7,10 +7,10 @@ from utils.getkeys import mouse_check
 import os
 
 
-# Load YOLO Skyrim Model
+# load YOLO Skyrim Model
 model = YOLO("yolo_skyrim.pt")
 
-# Capture Skyrim window
+# capture Skyrim window
 wincap = WindowCapture("Skyrim")
 
 classes = ["Human-Like"]

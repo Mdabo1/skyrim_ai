@@ -8,7 +8,7 @@ def save_plots(train_acc, valid_acc, train_loss, valid_loss, name=None):
     """
     Function to save the loss and accuracy plots to disk.
     """
-    # Accuracy plots.
+    # accuracy plots
     plt.figure(figsize=(10, 7))
     plt.plot(train_acc, color="tab:blue", linestyle="-", label="train accuracy")
     plt.plot(valid_acc, color="tab:red", linestyle="-", label="validataion accuracy")
@@ -17,7 +17,7 @@ def save_plots(train_acc, valid_acc, train_loss, valid_loss, name=None):
     plt.legend()
     plt.savefig(os.path.join("outputs", name + "_accuracy.png"))
 
-    # Loss plots.
+    # loss plots
     plt.figure(figsize=(10, 7))
     plt.plot(train_loss, color="tab:blue", linestyle="-", label="train loss")
     plt.plot(valid_loss, color="tab:red", linestyle="-", label="validataion loss")

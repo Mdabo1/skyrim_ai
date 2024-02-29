@@ -3,7 +3,7 @@ import torch
 from torch.utils.data import DataLoader, TensorDataset
 
 def get_data(batch_size=64):
-    # Create data loaders.
+    # create data loaders
     data = np.load("training_data_v3.npy", allow_pickle=True)
 
     train = data[:20560]

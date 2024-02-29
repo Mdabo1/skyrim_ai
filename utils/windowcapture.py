@@ -4,7 +4,7 @@ import win32gui, win32ui, win32con
 
 
 class WindowCapture:
-    # Define your monitor width and height
+    # define your monitor width and height
     w = 0
     h = 0
     hwnd = None
@@ -25,9 +25,7 @@ class WindowCapture:
         self.cropped_y = titlebar_pixels
 
     def get_screenshot(self):
-        # hwnd = None
-
-        # Get the window image data
+        # get the window image data
         wDC = win32gui.GetWindowDC(self.hwnd)
         dcObj = win32ui.CreateDCFromHandle(wDC)
         cDC = dcObj.CreateCompatibleDC()
@@ -42,14 +40,13 @@ class WindowCapture:
             win32con.SRCCOPY,
         )
 
-        # Save the screenshot
-        # dataBitMap.SaveBitmapFile(cDC, "kek.jpg")
+        # save the screenshot
         signedIntsArray = dataBitMap.GetBitmapBits(True)
         img = np.frombuffer(signedIntsArray, dtype="uint8")
         img.shape = (self.h, self.w, 4)
         img = cv2.cvtColor(img, cv2.COLOR_RGBA2RGB)
 
-        # Free Resources
+        # free Resources
         dcObj.DeleteDC()
         cDC.DeleteDC()
         win32gui.ReleaseDC(self.hwnd, wDC)
