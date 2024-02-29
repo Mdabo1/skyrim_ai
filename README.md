@@ -34,7 +34,7 @@ More Details Below!
 * Trained on rtx 3060, 500 epochs with 64 batch size for 4 hours (no pretrain/no finetune, total number of parameters 11,181,129)
 * Accuracy is 35.4770% :(
 * The mouse movement problem*
-* Stucking problem**
+* Stucking problem (as you see in gif above)** 
 
 *The mouse movement problem - If human's mouse movements are not constant, (it can be 30 pixels right then 5 pixels up, 5 pixels down and 0 pixels in X direction) our AI moves it only to some specific value  
 
