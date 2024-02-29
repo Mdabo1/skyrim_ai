@@ -31,7 +31,7 @@ More Details Below!
 ![skyrim2 (3)](https://github.com/Mdabo1/skyrim_ai/assets/122386960/86b6b6b0-9190-4635-919c-8b174c708c83)
 
 * Train/Val split is 20560/4112
-* Trained on rtx 3060, 500 epochs with 64 batch size for 4 hours (no pretrain/no finetune, 11.181.129 total parameters)
+* Trained on rtx 3060, 500 epochs with 64 batch size for 4 hours (no pretrain/no finetune, total number of parameters 11,181,129)
 * Accuracy is 35.4770% :(
 * The mouse movement problem*
 * Stucking problem**
