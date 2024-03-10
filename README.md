@@ -43,6 +43,6 @@ More Details Below!
 ## Train and Val accuracy (ResNet18)
 ![Train and Val accuracy through 500 epochs](https://github.com/Mdabo1/skyrim_ai/blob/main/outputs/resnet_torchvision_accuracy-500e-64b.png)
 
-## References
+## Acknowledgments
 
 Originally inspired by Sentdex - https://github.com/Sentdex/pygta5
